@@ -9,6 +9,14 @@
 
     <header>
         <h1>Formulir Kontak</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="proyek.html">Proyek</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="kontak.html">Hubungi Saya</a></li>
+            </ul>
+        </nav>
     </header>
 
     <hr>
@@ -16,20 +24,20 @@
     <main>
         <section>
             <h2>Kirimkan Pesan atau Penawaran Proyek</h2>
-            <form>
+            <form action="#" method="POST">
 
                 <p>
                     <label for="nama_pengirim">Nama Lengkap Anda:</label><br>
-                    <input type="text" id="nama_pengirim"name="nama_pengirim">
+                    <input type="text" id="nama_pengirim" name="nama_pengirim" required>
                 </p>
                 <p>
                     <label for="email_pengirim">Alamat Email:</label><br>
-                    <input type="email" id="email_pengirim" name="email_pengirim">
+                    <input type="email" id="email_pengirim" name="email_pengirim" required>
                 </p>
                 
                 <p>
                     <label for="jenis_layanan">Layanan yang Dibutuhkan:</label><br>
-                    <select id="jenis_layanan" name="jenis_layanan">
+                    <select id="jenis_layanan" name="jenis_layanan" required>
                         <option value="">-- Pilih Layanan --</option>
                         <option value="web">Pembuatan Web</option>
                         <option value="app">Pengembangan Aplikasi</option>
@@ -39,7 +47,7 @@
 
                 <p>
                     <label for="pesan">Pesan:</label><br>
-                    <textarea id="pesan" name="pesan" rows="6" cols="50"></textarea>
+                    <textarea id="pesan" name="pesan" rows="6" cols="50" required></textarea>
                 </p>
                 
                 <p>
@@ -50,9 +58,11 @@
             </form>
         </section>
     </main>
+
     <hr>
+
     <footer>
-        <p>&copy; 2026 Teknik Informatika ITG</p>
+        <p>&copy; 2026 Portofolio Mahasiswa - All Rights Reserved.</p>
     </footer>
 
 </body>
