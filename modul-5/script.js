@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputError = document.querySelector("#inputError");
     const todoList = document.querySelector("#todoList");
     const floatingNotification = document.querySelector("#floatingNotification");
+    
+    // Elemen DOM Baru untuk Fitur 1 dan Fitur 2
+    const taskCounter = document.querySelector("#taskCounter");
+    const clearCompletedBtn = document.querySelector("#clearCompletedBtn");
  
     // Fungsi untuk menampilkan notifikasi mengambang
     const showNotification = (message) => {
@@ -25,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Fungsi menampilkan daftar tugas ke layar
     const renderTasks = () => {
         const tasks = getTasks();
+        
+        // Fitur 1: Perbarui teks Penghitung Jumlah Tugas
+        const total = tasks.length;
+        const completed = tasks.filter(task => task.completed).length;
+        const incomplete = total - completed;
+        taskCounter.textContent = `Total: ${total} Tugas | Selesai: ${completed} | Belum Selesai: ${incomplete}`;
+
+        // Fitur 2: Tampilkan atau sembunyikan tombol "Bersihkan Tugas Selesai"
+        clearCompletedBtn.style.display = completed > 0 ? "block" : "none";
+
         todoList.innerHTML = "";
         
         if (tasks.length === 0) {
@@ -92,11 +106,23 @@ document.addEventListener("DOMContentLoaded", () => {
             saveTasks(tasks);
             renderTasks();
         } else if (deleteBtn) {
-            const index = parseInt(deleteBtn.dataset.index, 10);
-            tasks.splice(index, 1); // Hapus 1 item berdasarkan index
-            saveTasks(tasks);
-            renderTasks();
+            // Fitur 3: Konfirmasi Sebelum Menghapus
+            if (confirm('Apakah Anda yakin ingin menghapus tugas ini?')) {
+                const index = parseInt(deleteBtn.dataset.index, 10);
+                tasks.splice(index, 1); 
+                saveTasks(tasks);
+                renderTasks();
+            }
         }
+    });
+
+    // Fitur 2: Tombol Bersihkan Tugas Selesai
+    clearCompletedBtn.addEventListener("click", () => {
+        let tasks = getTasks();
+        // Filter hanya tugas yang berstatus completed: false
+        tasks = tasks.filter(task => !task.completed); 
+        saveTasks(tasks);
+        renderTasks();
     });
 
     // Render pertama kali saat halaman selesai dimuat

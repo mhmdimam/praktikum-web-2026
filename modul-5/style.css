@@ -4,7 +4,7 @@ body {
     background-color: #f8fafc; color: #1e293b; padding: 40px 20px; display: flex; justify-content: center;
 }
 
-/* Styling Notifikasi Mengambang (Toast) */
+/* Notifikasi Mengambang */
 .floating-notification {
     position: fixed;
     top: 20px;
@@ -67,3 +67,35 @@ button.add-btn:hover { background-color: #1e40af; }
 .complete-btn:hover { background-color: #15803d; }
 .delete-btn { background-color: #dc2626; color: white; }
 .delete-btn:hover { background-color: #b91c1c; }
+
+/* Penghitung Tugas (Fitur 1) */
+.task-counter {
+    text-align: center;
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 16px;
+    font-weight: 500;
+    background-color: #f8fafc;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Tombol Bersihkan Tugas Selesai (Fitur 2) */
+.clear-btn {
+    width: 100%;
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
